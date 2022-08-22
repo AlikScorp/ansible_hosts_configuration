@@ -1,6 +1,12 @@
 ---
-- 
-
-
+- name: Install Oracle client onto the Windows Server
+  vars:
+    download_dir: C:\Users\{{ ansible_user }}\Downloads
+#    msi_url: 
+  tasks:
+    - name: Ensure the directory exists
+      win_file:
+        path: "{{ download_dir }}"
+        state: directory
 
 ...
