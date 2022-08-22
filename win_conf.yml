@@ -17,6 +17,4 @@
         use_default_credential: yes
         proxy_use_default_credential: yes
         force: no
-
-
 ...
