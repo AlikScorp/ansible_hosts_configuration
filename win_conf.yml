@@ -20,7 +20,7 @@
 
     - name: Copy MSC file from network location
       win_copy:
-        src: '\\10.97.142.17\h$\Share\mysql-connector-odbc-8.0.13-win32.msi'
+        src: "\\\\10.97.142.17\\h$\\Share\\mysql-connector-odbc-8.0.13-win32.msi"
         dest: "{{ download_dir }}"
         force: no
 
