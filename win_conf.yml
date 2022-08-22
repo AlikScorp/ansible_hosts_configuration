@@ -3,11 +3,19 @@
   hosts: win2019
   vars:
     download_dir: C:\Users\{{ ansible_user }}\Downloads
-#    msi_url: 
+    msi_url: https://s3.amazonaws.com/aws-cli/AWSCLI32PY3.msi
   tasks:
     - name: Ensure the directory exists
       win_file:
         path: "{{ download_dir }}"
         state: directory
+    
+    - name: Download binary win_file
+      win_get_url:
+        url: "{{ msi_url }}"
+        dest: "{{ download_dir }}\\awscli.msi"
+        use_default_credential: yes
+        proxy_use_default_credential: yes
+        force: no
 
 ...
