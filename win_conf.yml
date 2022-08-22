@@ -1,5 +1,6 @@
 ---
 - name: Install Oracle client onto the Windows Server
+  hosts: win2019
   vars:
     download_dir: C:\Users\{{ ansible_user }}\Downloads
 #    msi_url: 
