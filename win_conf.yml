@@ -5,7 +5,7 @@
     download_dir: C:\Users\{{ ansible_user }}\Downloads
     msi_url: https://s3.amazonaws.com/aws-cli/AWSCLI32PY3.msi
     file_name: mysql-connector-odbc-8.0.13-win32.msi
-    file_path: 'file://\\10.97.142.17\\h$\\Share'
+    file_path: 'file://\\10.97.142.17\\h$\\Share\\'
   tasks:
     - name: Ensure the directory exists
       win_file:
@@ -22,6 +22,6 @@
 
     - name: Copy MSC file from network location
       win_get_url:
-        url: "{{ file_name }}\\{{ file_path }}"
+        url: "{{ file_path }}{{ file_name }}"
         dest: "{{ download_dir }}"
 ...
