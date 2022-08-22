@@ -22,6 +22,6 @@
 
     - name: Copy MSC file from network location
       win_get_url:
-        url: "{{ file_url }}\\{{ file_path }}"
+        url: "{{ file_name }}\\{{ file_path }}"
         dest: "{{ download_dir }}"
 ...
