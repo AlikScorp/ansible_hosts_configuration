@@ -40,6 +40,6 @@
     
     - name: Installation of Oracle Client
       ansible.windows.win_package:
-        path: '{{ win.unzip.dest }}\client\setup.exe'
+        path: '{{ win_unzip.dest }}\client\setup.exe'
         state: present
 ...
