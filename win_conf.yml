@@ -26,7 +26,12 @@
         dest: "{{ download_dir }}"
       register: win_get_url
 
-    - name: Copy and unarchive oracle client
+    - name: Install PSCX
+      community.windows.win_psmodule:
+        name: Pscx
+        state: present
+
+    - name: Unzip oracle client
       community.windows.win_unzip:
         src: "{{ win_get_url.dest }}"
         dest: "{{ download_dir }}"
