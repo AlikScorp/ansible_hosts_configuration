@@ -5,6 +5,7 @@
     download_dir: C:\Users\{{ ansible_user }}\Downloads
     # msi_url: https://s3.amazonaws.com/aws-cli/AWSCLI32PY3.msi
     file_name: winx64_12201_client.zip
+    respose_file_name: client.rsp
     file_path: 'file://\\10.97.142.17\h$\Releases\_Oracle_client_12.2\'
   tasks:
     - name: Ensure the directory exists
@@ -26,6 +27,12 @@
         dest: "{{ download_dir }}"
       register: win_get_url
 
+    - name: Copy Response file
+      win_get_url:
+        url: "{{ file_path}}{{ respose_file_name }}"
+        dest: "{{ download_dir }}"
+      register: response_file
+
     # - name: Install PSCX
     #   community.windows.win_psmodule:
     #     name: Pscx
@@ -36,7 +43,7 @@
         src: "{{ win_get_url.dest }}"
         dest: "{{ download_dir }}"
         # recurse: yes
-      register: win_unzip
+      register: win_unzip       
 
     - name: Disable UAC for Administrators
       ansible.windows.win_regedit:
@@ -48,13 +55,14 @@
 
     - name: Installation of Oracle Client
       ansible.windows.win_package:
-        path: '{{ win_unzip.dest }}\client\setup.exe'
+        path: '{{ win_unzip.dest }}\client\setup.exe -silent -responseFile {{ response_file.dest }}'
         state: present
+        # arguments: -silent
       # become: yes
       # become_method: runas
       # vars:
       #   ansible_become_user: "{{ ansible_user }}"
-        # ansible_become_password: {{ ansible_become_password }}
+      #   ansible_become_password: {{ ansible_become_password }}
 
     - name: Enable UAC for Administrators
       ansible.windows.win_regedit:
