@@ -61,7 +61,7 @@
           - -waitforcompletion
           - -nowait
           - -responseFile
-          - {{ response_file.dest }} 
+          - "{{ response_file.dest }}" 
           - -silent
       # become: yes
       # become_method: runas
