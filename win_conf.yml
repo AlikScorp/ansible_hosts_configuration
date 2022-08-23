@@ -36,4 +36,10 @@
         src: "{{ win_get_url.dest }}"
         dest: "{{ download_dir }}"
         # recurse: yes
+      register: win_unzip
+    
+    - name: Installation of Oracle Client
+      ansible.windows.win_package:
+        path: '{{ win.unzip.dest }}\client\setup.exe'
+        state: present
 ...
