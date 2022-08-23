@@ -42,4 +42,5 @@
       ansible.windows.win_package:
         path: '{{ win_unzip.dest }}\client\setup.exe'
         state: present
+      become: yes
 ...
