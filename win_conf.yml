@@ -4,8 +4,8 @@
   vars:
     download_dir: C:\Users\{{ ansible_user }}\Downloads
     msi_url: https://s3.amazonaws.com/aws-cli/AWSCLI32PY3.msi
-    file_name: _Oracle_client_12.2
-    file_path: 'file://\\10.97.142.17\h$\Releases\'
+    file_name: winx64_12201_client.zip
+    file_path: 'file://\\10.97.142.17\h$\Releases\_Oracle_client_12.2\'
   tasks:
     - name: Ensure the directory exists
       win_file:
