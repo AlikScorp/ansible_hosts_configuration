@@ -20,14 +20,15 @@
     #     proxy_use_default_credential: yes
     #     force: no
 
-    # - name: Copying Oracle Client from network location
-    #   win_get_url:
-    #     url: "{{ file_path }}{{ file_name }}"
-    #     dest: "{{ download_dir }}"
+    - name: Copying Oracle Client from network location
+      win_get_url:
+        url: "{{ file_path }}{{ file_name }}"
+        dest: "{{ download_dir }}"
+        register: client_path
 
     - name: Copy and unarchive oracle client
       community.windows.win_unzip:
-        src: "{{ file_path }}{{ file_name }}"
+        src: "{{ client_path.dest }}"
         dest: "{{ download_dir }}"
         recurse: yes
 ...
