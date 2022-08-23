@@ -59,6 +59,7 @@
         state: present
         arguments: 
           - -waitforcompletion
+          - -nowait
           - -responseFile {{ response_file.dest }} 
           - -silent
       # become: yes
