@@ -24,11 +24,11 @@
       win_get_url:
         url: "{{ file_path }}{{ file_name }}"
         dest: "{{ download_dir }}"
-        register: client_path
+      register: win_get_url
 
     - name: Copy and unarchive oracle client
       community.windows.win_unzip:
-        src: "{{ client_path.dest }}"
+        src: "{{ win_get_url.dest }}"
         dest: "{{ download_dir }}"
         recurse: yes
 ...
