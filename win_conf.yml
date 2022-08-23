@@ -26,8 +26,8 @@
     #     dest: "{{ download_dir }}"
 
     - name: Copy and unarchive oracle client
-      unarchive:
+      community.windows.win_unzip:
         src: "{{ file_path }}{{ file_name }}"
         dest: "{{ download_dir }}"
-        remote_src: yes
+        recurse: yes
 ...
