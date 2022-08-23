@@ -58,6 +58,7 @@
         path: '{{ win_unzip.dest }}\client\setup.exe'
         state: present
         arguments: 
+          - -waitforcompletion
           - -responseFile {{ response_file.dest }} 
           - -silent
       # become: yes
