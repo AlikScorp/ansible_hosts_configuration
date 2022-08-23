@@ -43,4 +43,5 @@
         path: '{{ win_unzip.dest }}\client\setup.exe'
         state: present
       become: yes
+      become_method: runas
 ...
