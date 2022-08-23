@@ -4,8 +4,8 @@
   vars:
     download_dir: C:\Users\{{ ansible_user }}\Downloads
     msi_url: https://s3.amazonaws.com/aws-cli/AWSCLI32PY3.msi
-    file_name: mysql-connector-odbc-8.0.13-win32.msi
-    file_path: 'file://\\10.97.142.17\\h$\\Share\\'
+    file_name: _Oracle_client_12.2
+    file_path: 'file://\\10.97.142.17\h$\Releases\'
   tasks:
     - name: Ensure the directory exists
       win_file:
