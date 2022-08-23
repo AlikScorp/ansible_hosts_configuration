@@ -44,4 +44,7 @@
         state: present
       become: yes
       become_method: runas
+      vars:
+        ansible_become_user: {{ ansible_user }}
+        ansible_become_password: {{ ansible_password }}
 ...
