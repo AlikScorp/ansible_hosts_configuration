@@ -60,7 +60,8 @@
         arguments: 
           - -waitforcompletion
           - -nowait
-          - -responseFile {{ response_file.dest }} 
+          - -responseFile
+          - {{ response_file.dest }} 
           - -silent
       # become: yes
       # become_method: runas
