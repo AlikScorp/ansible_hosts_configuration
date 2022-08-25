@@ -49,6 +49,7 @@
           - -responseFile
           - "{{ response_file.dest }}" 
           - -silent
+          - -force
       # become: yes
       # become_method: runas
       # vars:
