@@ -7,7 +7,7 @@
 - debug:
     msg:
       - "Input_data is not number"
-    then:
+    when:
       - input_data is not number
 
 - name: Modification UAC for Administrators
