@@ -1,5 +1,8 @@
 ---
 
+- set_fact: is_checked=False
+
+
 - name: "Checking type of {{ input_data }}"
   ansible.builtin.assert:
     that:
@@ -9,4 +12,5 @@
     # quiet: true
   ignore_errors: yes
 
+- set_fact: is_checked=True
 ...
