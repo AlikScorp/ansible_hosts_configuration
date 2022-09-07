@@ -10,7 +10,7 @@
 
   roles:
     - { role: Echo, input_data: 'Testing for some functionality' }
-    - { role: UACModifier, data: 0}
+    - { role: UACModifier, input_data: 0 }
     - { role: UACModifier }
 
   # tasks:

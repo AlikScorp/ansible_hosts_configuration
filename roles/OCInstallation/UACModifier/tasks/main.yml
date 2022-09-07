@@ -6,6 +6,6 @@
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system
     name: ConsentPromptBehaviorAdmin
-    data: "{{ data }}"
+    data: "{{ input_data }}"
     type: dword
     state: present
