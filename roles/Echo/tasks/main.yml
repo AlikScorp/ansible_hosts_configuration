@@ -2,7 +2,7 @@
 
 - debug:
     msg:
-      - "Echoing {{ input_data }}"
+      - "{{ input_data }}"
 
 # - name: "Printing the input data"
 
