@@ -1,15 +1,12 @@
 ---
 
-- ansible.builtin.fail:
-    msg: Cannot continue because the input data ({{ input_data }}) is not integer.
-  when: input_data|type != "int"
-
-# - name: "Checking type of {{ input_data }}"
-#   ansible.builtin.assert:
-#     # msg:
-#     #   - "Input_data is not number"
-#     that:
-#       - input_data is number and input_data is integer
+- name: "Checking type of {{ input_data }}"
+  ansible.builtin.assert:
+    that:
+      - input_data is number and input_data is integer
+    fail_msg:
+      - "Input data should be an integer"
+    quiet: true
 
 - debug:
     msg:
