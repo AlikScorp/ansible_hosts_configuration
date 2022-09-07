@@ -1,5 +1,6 @@
 ---
 
 input_data: 0
+is_failed: False
 
 ...

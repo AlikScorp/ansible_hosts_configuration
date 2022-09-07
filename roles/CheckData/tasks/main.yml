@@ -1,21 +1,18 @@
 ---
 
-# - set_fact: is_failed=True
-
-
 - name: "Checking type of {{ input_data }}"
   ansible.builtin.assert:
     that:
       - input_data is number and input_data is integer
     fail_msg: "Validation of input data. Failed!"
     success_msg: "Validation of input data. Success!"
-    # quiet: true
+    quiet: true
   ignore_errors: yes
   register: type_check
 
 - set_fact: is_failed="{{ type_check['failed'] }}"
 
-- debug:
-    msg:
-      - "{{ type_check }}"
+# - debug:
+#     msg:
+#       - "{{ type_check }}"
 ...

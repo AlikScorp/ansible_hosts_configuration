@@ -1,8 +1,8 @@
 ---
 
-- debug:
-    msg:
-      - "is_failed={{ is_failed }}"
+# - debug:
+#     msg:
+#       - "is_failed={{ is_failed }}"
 
 - debug:
     msg:
