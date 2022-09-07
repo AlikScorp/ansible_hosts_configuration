@@ -2,7 +2,7 @@
 
 - debug:
     msg:
-      - "is_checked={{ is_checked }}"
+      - "is_failed={{ is_failed }}"
 
 - debug:
     msg:

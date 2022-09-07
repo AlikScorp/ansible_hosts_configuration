@@ -1,6 +1,6 @@
 ---
 
-# - set_fact: is_checked=True
+# - set_fact: is_failed=True
 
 
 - name: "Checking type of {{ input_data }}"
@@ -13,7 +13,7 @@
   ignore_errors: yes
   register: type_check
 
-- set_fact: is_checked="{{ type_check['changed'] }}"
+- set_fact: is_failed="{{ type_check['failed'] }}"
 
 - debug:
     msg:
