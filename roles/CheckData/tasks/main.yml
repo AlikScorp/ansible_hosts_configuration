@@ -4,8 +4,8 @@
   ansible.builtin.assert:
     that:
       - input_data is number and input_data is integer
-    fail_msg: "Validation of {{ input_data }}. Failed!"
-    success_msg: "Validation of {{ input_data }}. Success!"
+    fail_msg: "Validation of input data. Failed!"
+    success_msg: "Validation of input data. Success!"
     # quiet: true
 
 - debug:
