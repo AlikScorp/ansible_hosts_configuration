@@ -1,13 +1,5 @@
 ---
 
-- name: "Checking type of input data"
-  ansible.builtin.assert:
-    # msg:
-    #   - "Input_data is not number"
-    that:
-      - input_data is not number
-
-
 - debug:
     msg:
       - "Change UAC value to '{{ uac_input_data }}'"
