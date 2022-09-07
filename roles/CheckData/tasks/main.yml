@@ -1,6 +1,6 @@
 ---
 
-- name: "Checking type of input data"
+- name: "Checking type of {{ input_data }}"
   ansible.builtin.assert:
     # msg:
     #   - "Input_data is not number"
