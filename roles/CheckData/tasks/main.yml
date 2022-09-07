@@ -7,4 +7,8 @@
     that:
       - input_data is number and input_data is integer
 
+- debug:
+    msg:
+      - "The next step is available"
+
 ...
