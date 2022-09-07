@@ -1,6 +1,14 @@
+---
+
 - debug:
     msg:
       - "Change UAC value to '{{ uac_input_data }}'"
+
+- debug:
+    msg:
+      - "Input_data is not number"
+    then:
+      - input_data is not number
 
 - name: Modification UAC for Administrators
   ansible.windows.win_regedit:
@@ -9,3 +17,5 @@
     data: "{{ uac_input_data }}"
     type: dword
     state: present
+
+...
