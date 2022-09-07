@@ -15,7 +15,7 @@
 
 - set_fact: is_checked="{{ type_check['changed'] }}"
 
-# - debug:
-#     msg:
-#       - "{{ type_check['changed'] }}"
+- debug:
+    msg:
+      - "{{ type_check }}"
 ...
