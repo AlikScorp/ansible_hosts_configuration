@@ -1,6 +1,6 @@
 ---
 
-- set_fact: is_checked=False
+- set_fact: is_checked=True
 
 
 - name: "Checking type of {{ input_data }}"
@@ -11,6 +11,7 @@
     success_msg: "Validation of input data. Success!"
     # quiet: true
   ignore_errors: yes
+  changed_when: is_checked=False
 
-- set_fact: is_checked=True
+# - set_fact: is_checked=True
 ...
