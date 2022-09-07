@@ -10,7 +10,7 @@
 
   roles:
     - { role: Echo, input_data: 'Testing for some functionality' }
-    - { role: OCInstallation/UACModifier, input_data: 0 }
+    - { role: OCInstallation/UACModifier, uac_input_data: 0 }
     - { role: OCInstallation/UACModifier }
 
   # tasks:
