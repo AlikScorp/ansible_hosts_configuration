@@ -5,6 +5,6 @@
     # msg:
     #   - "Input_data is not number"
     that:
-      - input_data is number
+      - input_data is number and input_data is integer
 
 ...
