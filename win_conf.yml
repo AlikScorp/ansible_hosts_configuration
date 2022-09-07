@@ -10,9 +10,9 @@
 
   roles:
     - { role: CheckData, input_data: 1 }
-    - { role: Echo, input_data: 'Testing for some functionality' }
-    - { role: OCInstallation/UACModifier, uac_input_data: 0 }
-    - { role: OCInstallation/UACModifier }
+    # - { role: Echo, input_data: 'Testing for some functionality' }
+    # - { role: OCInstallation/UACModifier, uac_input_data: 0 }
+    # - { role: OCInstallation/UACModifier }
 
   # tasks:
     # - name: Ensure the directory exists

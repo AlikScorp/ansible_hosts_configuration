@@ -4,9 +4,10 @@
   ansible.builtin.assert:
     that:
       - input_data is number and input_data is integer
-    fail_msg:
-      - "Input data should be an integer"
-    quiet: true
+    msg: "Validation of {{ input_data }}"
+    fail_msg: "Failed!"
+    success_msg: "Success!"
+    # quiet: true
 
 - debug:
     msg:

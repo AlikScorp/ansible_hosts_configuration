@@ -1,5 +1,12 @@
 ---
 
+- name: "Checking type of {{ uac_input_data }}"
+  ansible.builtin.assert:
+    that:
+      - uac_input_data is number and uac_input_data is integer
+    fail_msg: "Failed!"
+    success_msg: "Success!"
+
 - debug:
     msg:
       - "Change UAC value to '{{ uac_input_data }}'"
