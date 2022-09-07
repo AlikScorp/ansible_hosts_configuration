@@ -10,8 +10,12 @@
     fail_msg: "Validation of input data. Failed!"
     success_msg: "Validation of input data. Success!"
     # quiet: true
-  # ignore_errors: yes
-  # changed_when: is_checked=False
+  ignore_errors: yes
+  register: type_check
 
 # - set_fact: is_checked=True
+
+- debug:
+    msg:
+      - "{{ type_check }}"
 ...
