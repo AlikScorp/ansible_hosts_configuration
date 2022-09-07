@@ -7,9 +7,6 @@
     fail_msg: "Validation of input data. Failed!"
     success_msg: "Validation of input data. Success!"
     # quiet: true
-
-- debug:
-    msg:
-      - "The next step is available"
+  ignore_errors: yes
 
 ...
