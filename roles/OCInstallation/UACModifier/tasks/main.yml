@@ -1,6 +1,6 @@
 - debug:
     msg:
-      - "Change UAC value to '{{ data }}'"
+      - "Change UAC value to '{{ uac_input_data }}'"
 
 - name: Disable UAC for Administrators
   ansible.windows.win_regedit:
