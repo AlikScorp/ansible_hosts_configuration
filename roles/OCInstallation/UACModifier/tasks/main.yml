@@ -4,7 +4,7 @@
     msg:
       - "Change UAC value to '{{ uac_input_data }}'"
 
-- debug:
+- ansible.builtin.fail:
     msg:
       - "Input_data is not number"
     when:
