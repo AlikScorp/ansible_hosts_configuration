@@ -1,0 +1,14 @@
+---
+
+# - include_vars: file="{{ playbook_dir.split('playbooks')[0] }}/group_vars/all.yml"
+
+- debug: 
+    msg: 
+     - "Checking is directory '{{ download_dir }}' exists"
+
+- name: Ensure the directory exists
+  win_file:
+    path: "{{ download_dir }}"
+    state: directory
+
+...

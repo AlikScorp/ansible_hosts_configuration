@@ -1,0 +1,26 @@
+---
+
+- debug:
+  msg:
+    - "Installation of Oracle Client"
+    - "Destination: {{ destination_path }}"
+    - "Response file: {{ response_file }}"
+
+- name: Installation of Oracle Client
+  ansible.windows.win_package:
+    path: '{{ destination_path }}\client\setup.exe'
+    state: present
+    arguments: 
+      - -waitforcompletion
+      - -nowait
+      - -responseFile
+      - "{{ response_file }}" 
+      - -silent
+      # - -force
+  # become: yes
+  # become_method: runas
+  # vars:
+  #   ansible_become_user: "{{ ansible_user }}"
+  #   ansible_become_password: {{ ansible_become_password }}
+
+...

@@ -1,0 +1,10 @@
+---
+
+- debug:
+  msg:
+    - "Echoing {{ input_data }}"
+
+# - name: "Printing the input data"
+
+
+...

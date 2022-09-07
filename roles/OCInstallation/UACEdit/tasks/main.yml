@@ -1,0 +1,11 @@
+- debug:
+    msg:
+      - "Change UAC value to '{{ data }}'"
+
+- name: Disable UAC for Administrators
+  ansible.windows.win_regedit:
+    path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system
+    name: ConsentPromptBehaviorAdmin
+    data: "{{ data }}"
+    type: dword
+    state: present

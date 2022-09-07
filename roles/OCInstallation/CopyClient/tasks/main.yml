@@ -1,0 +1,13 @@
+---
+
+- debug: 
+    msg: 
+     - "Copying zipped Oracle Client"
+
+- name: Copying Oracle Client from network location
+  win_get_url:
+    url: "{{ file_path }}{{ file_name }}"
+    dest: "{{ download_dir }}"
+  register: win_get_url
+
+...

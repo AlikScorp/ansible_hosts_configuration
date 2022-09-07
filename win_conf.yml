@@ -1,67 +1,72 @@
 ---
 - name: Install Oracle client onto the Windows Server
   hosts: win2019
+
   vars:
     download_dir: C:\Users\{{ ansible_user }}\Downloads
     file_name: winx64_12201_client.zip
     respose_file_name: client.rsp
     file_path: 'file://\\10.97.142.17\h$\Releases\_Oracle_client_12.2\'
-  tasks:
-    - name: Ensure the directory exists
-      win_file:
-        path: "{{ download_dir }}"
-        state: directory
+
+  roles:
+    - { role: Echo, input_data: 'Test message' }
+
+  # tasks:
+    # - name: Ensure the directory exists
+    #   win_file:
+    #     path: "{{ download_dir }}"
+    #     state: directory
     
-    - name: Copying Oracle Client from network location
-      win_get_url:
-        url: "{{ file_path }}{{ file_name }}"
-        dest: "{{ download_dir }}"
-      register: win_get_url
+    # - name: Copying Oracle Client from network location
+    #   win_get_url:
+    #     url: "{{ file_path }}{{ file_name }}"
+    #     dest: "{{ download_dir }}"
+    #   register: win_get_url
 
-    - name: Copy Response file
-      win_get_url:
-        url: "{{ file_path}}{{ respose_file_name }}"
-        dest: "{{ download_dir }}"
-      register: response_file
+    # - name: Copy Response file
+    #   win_get_url:
+    #     url: "{{ file_path}}{{ respose_file_name }}"
+    #     dest: "{{ download_dir }}"
+    #   register: response_file
 
-    - name: Unzip oracle client
-      community.windows.win_unzip:
-        src: "{{ win_get_url.dest }}"
-        dest: "{{ download_dir }}"
-        # recurse: yes
-      register: win_unzip       
+    # - name: Unzip oracle client
+    #   community.windows.win_unzip:
+    #     src: "{{ win_get_url.dest }}"
+    #     dest: "{{ download_dir }}"
+    #     # recurse: yes
+    #   register: win_unzip
 
-    - name: Disable UAC for Administrators
-      ansible.windows.win_regedit:
-        path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system
-        name: ConsentPromptBehaviorAdmin
-        data: 0
-        type: dword
-        state: present
+    # - name: Disable UAC for Administrators
+    #   ansible.windows.win_regedit:
+    #     path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system
+    #     name: ConsentPromptBehaviorAdmin
+    #     data: 0
+    #     type: dword
+    #     state: present
 
-    - name: Installation of Oracle Client
-      ansible.windows.win_package:
-        path: '{{ win_unzip.dest }}\client\setup.exe'
-        state: present
-        arguments: 
-          - -waitforcompletion
-          - -nowait
-          - -responseFile
-          - "{{ response_file.dest }}" 
-          - -silent
-          - -force
-      # become: yes
-      # become_method: runas
-      # vars:
-      #   ansible_become_user: "{{ ansible_user }}"
-      #   ansible_become_password: {{ ansible_become_password }}
+    # - name: Installation of Oracle Client
+    #   ansible.windows.win_package:
+    #     path: '{{ win_unzip.dest }}\client\setup.exe'
+    #     state: present
+    #     arguments: 
+    #       - -waitforcompletion
+    #       - -nowait
+    #       - -responseFile
+    #       - "{{ response_file.dest }}" 
+    #       - -silent
+    #       - -force
+    #   # become: yes
+    #   # become_method: runas
+    #   # vars:
+    #   #   ansible_become_user: "{{ ansible_user }}"
+    #   #   ansible_become_password: {{ ansible_become_password }}
 
-    - name: Enable UAC for Administrators
-      ansible.windows.win_regedit:
-        path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system
-        name: ConsentPromptBehaviorAdmin
-        data: 5
-        type: dword
-        state: present
+    # - name: Enable UAC for Administrators
+    #   ansible.windows.win_regedit:
+    #     path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system
+    #     name: ConsentPromptBehaviorAdmin
+    #     data: 5
+    #     type: dword
+    #     state: present
 
 ...

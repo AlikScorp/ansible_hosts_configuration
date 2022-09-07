@@ -1,0 +1,13 @@
+---
+
+- debug:
+    msg:
+      - "Copying Respose file (rsp) for Oracle Client Installation"
+
+- name: Copy Response file
+  win_get_url:
+    url: "{{ file_path}}{{ respose_file_name }}"
+    dest: "{{ download_dir }}"
+  register: response_file
+
+...

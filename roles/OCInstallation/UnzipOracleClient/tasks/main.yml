@@ -1,0 +1,16 @@
+---
+
+- debug:
+    msg:
+      - "Unzipping Orcale Client onto "
+      - "src: {{ win_get_url.dest }}"
+      - "dest: {{ download_dir }}"
+
+- name: Unzip oracle client
+  community.windows.win_unzip:
+    src: "{{ win_get_url.dest }}"
+    dest: "{{ download_dir }}"
+    # recurse: yes
+  register: win_unzip
+
+...
