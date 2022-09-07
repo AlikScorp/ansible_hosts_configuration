@@ -2,7 +2,7 @@
     msg:
       - "Change UAC value to '{{ uac_input_data }}'"
 
-- name: Disable UAC for Administrators
+- name: Modification UAC for Administrators
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system
     name: ConsentPromptBehaviorAdmin
