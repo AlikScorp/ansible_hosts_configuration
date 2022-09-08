@@ -10,4 +10,6 @@
     dest: "{{ download_dir }}"
   register: response_file
 
+- set_fact: ResponseFileResource=response_file
+
 ...
