@@ -1,5 +1,30 @@
 ---
 
+# - OCInstallation/DirectoryExist
+# - OCInstallation/CopyClient
+# - OCInstallation/CopyResponseFile
+# - OCInstallation/UnzipOracleClient
+# - { role: OCInstallation/UACModifier, uac_input_data: 0 }
+- OCInstallation/OCInstall
+# - { role: OCInstallation/UACModifier }
+
+- ansible.builtin.include_role:
+  name: OCInstallation/DirectoryExist
+
+- ansible.builtin.include_role:
+  name: OCInstallation/CopyClient
+
+- ansible.builtin.include_role:
+  name: OCInstallation/CopyResponseFile
+
+- ansible.builtin.include_role:
+  name: OCInstallation/UnzipOracleClient
+
+- ansible.builtin.include_role:
+  name: OCInstallation/UACModifier
+  vars:
+    - uac_input_data: 0
+
 - debug:
     msg:
       - "Installation of Oracle Client"
@@ -12,6 +37,7 @@
     state: present
     arguments: 
       - -waitforcompletion
+      - -noconsole
       - -nowait
       - -responseFile
       - "{{ response_file.dest }}" 
@@ -22,5 +48,10 @@
   # vars:
   #   ansible_become_user: "{{ ansible_user }}"
   #   ansible_become_password: {{ ansible_become_password }}
+
+- ansible.builtin.include_role:
+  name: OCInstallation/UACModifier
+  vars:
+    - uac_input_data: 5
 
 ...
