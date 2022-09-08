@@ -6,12 +6,13 @@
     download_dir: C:\Users\{{ ansible_user }}\Downloads
     file_name: winx64_12201_client.zip
     respose_file_name: client.rsp
-    file_path: 'file://\\10.97.142.17\h$\Releases\_Oracle_client_12.2\'
+    file_path: 'https://artifactory.mts.ru/artifactory/dev-ocs-generic-local/' # 'file://\\10.97.142.17\h$\Releases\_Oracle_client_12.2\'
 
   roles:
     # - { role: CheckData, input_data: 1.5 }
     # - { role: Echo, input_data: 'Testing for some functionality' }
     - OCInstallation/DirectoryExist
+    - OCInstallation/CopyClient
     # - { role: OCInstallation/UACModifier, uac_input_data: 0 }
     # - { role: OCInstallation/UACModifier }
 

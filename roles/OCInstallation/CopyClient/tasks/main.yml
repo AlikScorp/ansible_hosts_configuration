@@ -3,6 +3,8 @@
 - debug: 
     msg: 
      - "Copying zipped Oracle Client"
+     - "src: {{ file_path }}{{ file_name }}"
+     - "dst: {{ download_dir }}"
 
 - name: Copying Oracle Client from network location
   win_get_url:
