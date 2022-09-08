@@ -13,8 +13,9 @@
     # - { role: CheckData, input_data: 1.5 }
     # - { role: Echo, input_data: 'Testing for some functionality' }
     - OCInstallation/DirectoryExist
-    # - OCInstallation/CopyClient
+    - OCInstallation/CopyClient
     - OCInstallation/CopyResponseFile
+    - OCInstallation/UnzipOracleClient
     # - { role: OCInstallation/UACModifier, uac_input_data: 0 }
     # - { role: OCInstallation/UACModifier }
 
