@@ -3,18 +3,18 @@
 - debug:
     msg:
       - "Installation of Oracle Client"
-      - "Destination: {{ destination_path }}"
-      - "Response file: {{ response_file }}"
+      - "Destination: {{ win_unzip.dest }}"
+      - "Response file: {{ response_file.dest }}"
 
 - name: Installation of Oracle Client
   ansible.windows.win_package:
-    path: '{{ destination_path }}\client\setup.exe'
+    path: '{{ win_unzip.dest }}\client\setup.exe'
     state: present
     arguments: 
       - -waitforcompletion
       - -nowait
       - -responseFile
-      - "{{ response_file }}" 
+      - "{{ response_file.dest }}" 
       - -silent
       # - -force
   # become: yes
