@@ -16,8 +16,9 @@
     - OCInstallation/CopyClient
     - OCInstallation/CopyResponseFile
     - OCInstallation/UnzipOracleClient
-    # - { role: OCInstallation/UACModifier, uac_input_data: 0 }
-    # - { role: OCInstallation/UACModifier }
+    - { role: OCInstallation/UACModifier, uac_input_data: 0 }
+    - OCInstallation/OCInstall
+    - { role: OCInstallation/UACModifier }
 
   # tasks:
     # - name: Ensure the directory exists
