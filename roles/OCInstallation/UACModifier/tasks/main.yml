@@ -4,13 +4,13 @@
   ansible.builtin.assert:
     that:
       - uac_input_data is number and uac_input_data is integer
-    fail_msg: "Failed!"
-    success_msg: "Success!"
+    fail_msg: "Incorrect input data. Input data should be an integer."
+    # success_msg: "Success!"
     quiet: true
 
-- debug:
-    msg:
-      - "Change UAC value to '{{ uac_input_data }}'"
+# - debug:
+#     msg:
+#       - "Change UAC value to '{{ uac_input_data }}'"
 
 - name: Modification UAC for Administrators
   ansible.windows.win_regedit:
