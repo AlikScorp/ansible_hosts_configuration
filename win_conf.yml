@@ -11,7 +11,7 @@
 
   roles:
     # - { role: CheckData, input_data: 1.5 }
-    - { role: Echo, input_data: {{ hostvars }} }
+    - { role: Echo, input_data: hostvars }
     # - OCInstallation/OCInstall
 
 ...
