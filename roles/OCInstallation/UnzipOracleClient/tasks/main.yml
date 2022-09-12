@@ -2,7 +2,7 @@
 
 - debug:
     msg:
-      - "Unzipping Orcale Client onto "
+      - "Unziping Oracle Client"
       - "src: {{ oracle_client.dest }}"
       - "dest: {{ download_dir }}"
 
