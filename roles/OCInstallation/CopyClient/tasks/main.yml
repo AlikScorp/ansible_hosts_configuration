@@ -14,17 +14,21 @@
 #   when:
 #     (source_file_name is defined and download_dir is defined)
 
-- debug:
-    msg: 
-      - "Title: {{ item.value['name'] }}"
-      - "File name: {{ item.value['file_name'] }}"
-      - "Arguments: {{ item.value['arguments'] }}"
-  loop: "{{ hostvars['__DEFAULT_VARS__']['SOFTWARE_TO_INSTALL']|dict2items }}"
+# - debug:
+#     msg: 
+#       - "Title: {{ item.value['name'] }}"
+#       - "File name: {{ item.value['file_name'] }}"
+#       - "Arguments: {{ item.value['arguments'] }}"
+#   loop: "{{ hostvars['__DEFAULT_VARS__']['SOFTWARE_TO_INSTALL']|dict2items }}"
+#   when:
+#     (hostvars['__DEFAULT_VARS__']['SOFTWARE_TO_INSTALL'] is defined)
 
 - name: Copying additional software
   win_get_url:
     url: "{{ item.value['file_location'] }}{{ item.value['file_name'] }}"
     dest: "{{ item.value['destination_path'] }}"
   loop: "{{ hostvars['__DEFAULT_VARS__']['SOFTWARE_TO_INSTALL']|dict2items }}"
+  when:
+    (hostvars['__DEFAULT_VARS__']['SOFTWARE_TO_INSTALL'] is defined)
 
 ...
