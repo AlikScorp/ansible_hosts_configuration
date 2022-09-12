@@ -2,7 +2,7 @@
 
 # - ansible.builtin.include_role: name="OCInstallation/DirectoryExist"
 
-# - ansible.builtin.include_role: name="OCInstallation/CopyClient"
+- ansible.builtin.include_role: name="OCInstallation/CopyClient"
 
 # - ansible.builtin.include_role: name="OCInstallation/UnzipOracleClient"
 
@@ -37,10 +37,10 @@
 #   when:
 #     (client_unziped is defined and response_file is defined)
 
-- ansible.builtin.include_role: name="OCInstallation/CopyTNS"
+# - ansible.builtin.include_role: name="OCInstallation/CopyTNS"
 
-- ansible.builtin.include_role: name="OCInstallation/UACModifier"
-  vars:
-    - uac_input_data: 5
+# - ansible.builtin.include_role: name="OCInstallation/UACModifier"
+#   vars:
+#     - uac_input_data: 5
 
 ...
