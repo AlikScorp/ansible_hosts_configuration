@@ -7,7 +7,7 @@
       - "DST: {{ rsp_win_path }}"
 
 - name: Copy Response file
-  win_get_url:
+  win_copy:
     url: "{{ rsp_src_path }}"
     dest: "{{ rsp_win_path }}"
   register: response_file
