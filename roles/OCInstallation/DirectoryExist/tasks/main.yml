@@ -2,7 +2,7 @@
 
 - debug: 
     msg: 
-     - "Checking is directory '{{ download_dir }}' exists"
+     - "Checking is directory '{{ hostvars['__DEFAULT_VARS__']['DISTRIB_PATH'] }}' exists"
 
 - name: Ensure the directory exists
   win_file:
