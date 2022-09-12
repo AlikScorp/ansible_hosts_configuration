@@ -8,8 +8,6 @@ SA2SDP2 =
             )
 )
 
-
-
 INT_FORIS = 
   (DESCRIPTION = 
     (ADDRESS_LIST = 

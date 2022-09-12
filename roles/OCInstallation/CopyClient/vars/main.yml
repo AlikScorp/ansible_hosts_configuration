@@ -1,6 +1,9 @@
 ---
 
+destination_path: "{{ hostvars['__DEFAULT_VARS__']['OC_LOCATION'] }}"
 source_file_name: "{{ hostvars['__DEFAULT_VARS__']['OC_LOCATION'] }}{{ hostvars['__DEFAULT_VARS__']['OC_FILE_NAME'] }}"
 download_dir: "{{ hostvars['__DEFAULT_VARS__']['DISTRIB_PATH'] }}"
+redist_x64_2017: vcredist_x64_2017.exe
+redist_x64_2010: vcredist_x64_2010.exe
 
 ...
