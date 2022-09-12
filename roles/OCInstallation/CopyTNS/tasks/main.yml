@@ -11,5 +11,6 @@
     src: "{{ tns_src_path }}"
     dest: "{{ tns_win_path }}"
   register: tns_file
+  ignore_errors: yes
 
 ...
