@@ -1,6 +1,6 @@
 ---
 
-source_file_name: "{{ hostvars['__DEFAULT_VARS__']['OC_LOCATION'] }}/{{ hostvars['__DEFAULT_VARS__']['OC_FILE_NAME'] }}"
+source_file_name: "{{ hostvars['__DEFAULT_VARS__']['OC_LOCATION'] }}{{ hostvars['__DEFAULT_VARS__']['OC_FILE_NAME'] }}"
 download_dir: "{{ hostvars['__DEFAULT_VARS__']['DISTRIB_PATH'] }}"
 
 ...
