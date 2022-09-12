@@ -2,9 +2,9 @@
 
 - ansible.builtin.include_role: name="OCInstallation/DirectoryExist"
 
-# - ansible.builtin.include_role: name="OCInstallation/CopyClient"
+- ansible.builtin.include_role: name="OCInstallation/CopyClient"
 
-# - ansible.builtin.include_role: name="OCInstallation/UnzipOracleClient"
+- ansible.builtin.include_role: name="OCInstallation/UnzipOracleClient"
 
 - ansible.builtin.include_role: name="OCInstallation/CopyResponseFile"
 
@@ -12,30 +12,30 @@
   vars:
     - uac_input_data: 0
 
-# - debug:
-#     msg:
-#       - "Installation of Oracle Client"
-#       - "Destination: {{ client_unziped.dest }}"
-#       - "Response file: {{ response_file.dest }}"
+- debug:
+    msg:
+      - "Installation of Oracle Client"
+      - "Destination: {{ client_unziped.dest }}"
+      - "Response file: {{ response_file.dest }}"
 
-# - name: Installation of Oracle Client
-#   ansible.windows.win_package:
-#     path: '{{ client_unziped.dest }}\client\setup.exe'
-#     state: present
-#     arguments: 
-#       - -waitforcompletion
-#       - -noconsole
-#       - -nowait
-#       - -responseFile
-#       - "{{ response_file.dest }}" 
-#       - -silent
-#   # become: yes
-#   # become_method: runas
-#   # vars:
-#   #   ansible_become_user: "{{ ansible_user }}"
-#   #   ansible_become_password: {{ ansible_become_password }}
-#   when:
-#     (client_unzipped is defined and response_file is defined)
+- name: Installation of Oracle Client
+  ansible.windows.win_package:
+    path: '{{ client_unziped.dest }}\client\setup.exe'
+    state: present
+    arguments: 
+      - -waitforcompletion
+      - -noconsole
+      - -nowait
+      - -responseFile
+      - "{{ response_file.dest }}" 
+      - -silent
+  # become: yes
+  # become_method: runas
+  # vars:
+  #   ansible_become_user: "{{ ansible_user }}"
+  #   ansible_become_password: {{ ansible_become_password }}
+  when:
+    (client_unzipped is defined and response_file is defined)
 
 - ansible.builtin.include_role: name="OCInstallation/CopyTNS"
 
