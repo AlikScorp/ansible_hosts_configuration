@@ -16,9 +16,9 @@
 
 - debug:
     msg: 
-      - "Title: {{ item.value['name'] }}"
-      - "File name: {{ item.value['file_name'] }}"
-      - "Arguments: {{ item.value['arguments'] }}"
+      - "Key: {{ item.key }}"
+      # - "File name: {{ item.value['file_name'] }}"
+      # - "Arguments: {{ item.value['arguments'] }}"
   loop: "{{ hostvars['__DEFAULT_VARS__']['SOFTWARE_TO_INSTALL'] }}"
 
 # - name: Copying additional software
