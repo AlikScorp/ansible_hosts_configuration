@@ -3,6 +3,8 @@
 - debug:
     msg:
       - "Copying Respose file (rsp) for Oracle Client Installation"
+      - "URL: {{ rsp_src_path }}"
+      - "DST: {{ rsp_win_path }}"
 
 - name: Copy Response file
   win_get_url:
