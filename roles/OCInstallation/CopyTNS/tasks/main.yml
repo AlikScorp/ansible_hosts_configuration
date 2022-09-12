@@ -3,10 +3,12 @@
 - debug:
     msg:
       - "Copying TNS file into Oracle Client folder"
+      - "SRC: {{ tns_src_path }}"
+      - "DST: {{ tns_win_path }}"
 
 - name: Copying TNS-file
-  win_get_url:
-    url: "{{ tns_src_path }}"
+  win_file:
+    src: "{{ tns_src_path }}"
     dest: "{{ tns_win_path }}"
   register: tns_file
 
