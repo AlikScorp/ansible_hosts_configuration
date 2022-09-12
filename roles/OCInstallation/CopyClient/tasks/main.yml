@@ -21,10 +21,10 @@
       - "Arguments: {{ item.value['arguments'] }}"
   loop: "{{ hostvars['__DEFAULT_VARS__']['SOFTWARE_TO_INSTALL']|dict2items }}"
 
-# - name: Copying additional software
-#   win_get_url:
-#     url: "{{ source_file_name }}"
-#     dest: "{{ download_dir }}"
-#   loop: "{{ hostvars['__DEFAULT_VARS__']['SOFTWARE_TO_INSTALL'] }}"
+- name: Copying additional software
+  win_get_url:
+    url: "{{ item.value['file_location'] }}{{ item.value['file_name'] }}"
+    dest: "{{ item.value['destination_path'] }}"
+  loop: "{{ hostvars['__DEFAULT_VARS__']['SOFTWARE_TO_INSTALL']|dict2items }}"
 
 ...
