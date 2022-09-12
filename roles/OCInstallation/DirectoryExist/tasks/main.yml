@@ -1,15 +1,12 @@
 ---
 
-- vars:
-    download_dir: "{{ hostvars['__DEFAULT_VARS__']['DISTRIB_PATH'] }}"
-
 - debug: 
     msg: 
      - "Checking is directory '{{ download_dir }}' exists"
 
 - name: Ensure the directory exists
   win_file:
-    path: "{{ download_dir }}"
+    path: "{{ hostvars['__DEFAULT_VARS__']['DISTRIB_PATH'] }}"
     state: directory
 
 ...
