@@ -1,15 +1,22 @@
 ---
 
+- vars: 
+    source_file_name: "{{ hostvars['__DEFAULT_VARS__']['OC_LOCATION'] }}\\{{ hostvars['__DEFAULT_VARS__']['OC_FILE_NAME'] }}"
+    download_dir: "{{ hostvars['__DEFAULT_VARS__']['DISTRIB_PATH'] }}"
+
 - debug: 
     msg: 
-     - "Copying zipped Oracle Client"
-     - "src: {{ file_path }}{{ file_name }}"
+     - "Copying archived Oracle Client"
+     - "src: {{ source_file_name }}"
      - "dst: {{ download_dir }}"
 
-- name: Copying Oracle Client from network location
+- name: Copying Oracle Client
   win_get_url:
-    url: "{{ file_path }}{{ file_name }}"
+    url: "{{ source_file_name }}"
     dest: "{{ download_dir }}"
-  register: win_get_url
+  register: oracle_client
+  when:
+    (source_file_name is defined and download_dir is defined)
+
 
 ...

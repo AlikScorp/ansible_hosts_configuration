@@ -1,16 +1,20 @@
 ---
 
+- vars:
+  download_dir: "{{ hostvars['__DEFAULT_VARS__']['DISTRIB_PATH'] }}"
+
 - debug:
     msg:
       - "Unzipping Orcale Client onto "
-      - "src: {{ win_get_url.dest }}"
+      - "src: {{ oracle_client.dest }}"
       - "dest: {{ download_dir }}"
 
 - name: Unzip oracle client
   community.windows.win_unzip:
-    src: "{{ win_get_url.dest }}"
+    src: "{{ oracle_client.dest }}"
     dest: "{{ download_dir }}"
-    # recurse: yes
-  register: win_unzip
+  register: client_unziped
+  when:
+    (oracle_client is defined and download_dir is defined)
 
 ...

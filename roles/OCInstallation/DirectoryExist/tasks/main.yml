@@ -1,6 +1,7 @@
 ---
 
-# - include_vars: file="{{ playbook_dir.split('playbooks')[0] }}/group_vars/all.yml"
+- vars:
+    download_dir: "{{ hostvars['__DEFAULT_VARS__']['DISTRIB_PATH'] }}"
 
 - debug: 
     msg: 

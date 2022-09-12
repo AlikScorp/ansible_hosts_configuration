@@ -1,15 +1,19 @@
 ---
 
+- vars:
+  rsp_src_path: "{{ hostvars['__DEFAULT_VARS__']['playbook_dir'] }}\\sources\\{{ hostvars['__DEFAULT_VARS']['RSP_FILE_NAME'] }}"
+  rsp_win_path: "{{ hostvars['__DEFAULT_VARS__']['DISTRIB_PATH'] }}\\client"
+
 - debug:
     msg:
       - "Copying Respose file (rsp) for Oracle Client Installation"
 
 - name: Copy Response file
   win_get_url:
-    url: "{{ response_file_path}}{{ respose_file_name }}"
-    dest: "{{ download_dir }}"
+    url: "{{ rsp_src_path }}"
+    dest: "{{ hostvars['__DEFAULT_VARS__']['DISTRIB_PATH'] }}"
   register: response_file
 
-- set_fact: ResponseFileResource=response_file
+# - set_fact: ResponseFileResource=response_file
 
 ...

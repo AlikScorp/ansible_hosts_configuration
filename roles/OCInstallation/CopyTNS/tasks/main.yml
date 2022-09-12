@@ -1,12 +1,17 @@
 ---
 
+- vars:
+  tns_src_path: "{{ hostvars['__DEFAULT_VARS__']['playbook_dir'] }}\\sources\\{{ hostvars['__DEFAULT_VARS']['TNS_FILE_NAME'] }}"
+  tns_win_path: "{{ hostvars['__DEFAULT_VARS__']['ORACLE_WIN_PATH'] }}\\network\\admin"
+
 - debug:
     msg:
       - "Copying TNS file into Oracle Client folder"
 
 - name: Copying TNS-file
   win_get_url:
-    url: "{{ response_file_path}}{{ tns_file_name }} "
-    dest: "{{ hostvars['__DEFAULT_VARS__']['ORACLE_WIN_PATH'] }}\\network\\admin"
+    url: "{{ tns_src_path }}"
+    dest: "{{ tns_win_path }}"
+  register: tns_file
 
 ...

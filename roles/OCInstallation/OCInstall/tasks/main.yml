@@ -15,12 +15,12 @@
 - debug:
     msg:
       - "Installation of Oracle Client"
-      - "Destination: {{ win_unzip.dest }}"
+      - "Destination: {{ client_unziped.dest }}"
       - "Response file: {{ response_file.dest }}"
 
 - name: Installation of Oracle Client
   ansible.windows.win_package:
-    path: '{{ win_unzip.dest }}\client\setup.exe'
+    path: '{{ client_unziped.dest }}\client\setup.exe'
     state: present
     arguments: 
       - -waitforcompletion
@@ -34,6 +34,10 @@
   # vars:
   #   ansible_become_user: "{{ ansible_user }}"
   #   ansible_become_password: {{ ansible_become_password }}
+  when:
+    (client_unzipped is defined and response_file is defined)
+
+- ansible.builtin.include_role: name="OCInstalltion/CopyTNS"
 
 - ansible.builtin.include_role: name="OCInstallation/UACModifier"
   vars:
