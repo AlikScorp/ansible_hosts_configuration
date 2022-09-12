@@ -32,4 +32,8 @@
     (hostvars['__DEFAULT_VARS__']['SOFTWARE_TO_INSTALL'] is defined)
   register: additional_software
 
+- debug:
+    msg:
+      - "{{ additional_software }}"
+
 ...
