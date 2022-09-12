@@ -4,9 +4,9 @@
 
 - ansible.builtin.include_role: name="OCInstallation/CopyClient"
 
-- ansible.builtin.include_role: name="OCInstallation/CopyResponseFile"
-
 - ansible.builtin.include_role: name="OCInstallation/UnzipOracleClient"
+
+- ansible.builtin.include_role: name="OCInstallation/CopyResponseFile"
 
 - ansible.builtin.include_role: name="OCInstallation/UACModifier"
   vars:

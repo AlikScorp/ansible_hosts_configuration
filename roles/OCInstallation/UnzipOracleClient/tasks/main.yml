@@ -1,8 +1,5 @@
 ---
 
-- vars:
-  download_dir: "{{ hostvars['__DEFAULT_VARS__']['DISTRIB_PATH'] }}"
-
 - debug:
     msg:
       - "Unzipping Orcale Client onto "
