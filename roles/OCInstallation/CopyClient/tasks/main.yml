@@ -16,10 +16,10 @@
 
 - debug:
     msg: 
-      - "Key: {{ item.0 }}, Value: {{ item.1 }}"
+      - "Key: {{ item.key }}, Value: {{ item.value }}"
       # - "File name: {{ item.value['file_name'] }}"
       # - "Arguments: {{ item.value['arguments'] }}"
-  loop: "{{ hostvars['__DEFAULT_VARS__']['SOFTWARE_TO_INSTALL'] }}"
+  loop: "{{ hostvars['__DEFAULT_VARS__']['SOFTWARE_TO_INSTALL']|dict2items }}"
 
 # - name: Copying additional software
 #   win_get_url:
