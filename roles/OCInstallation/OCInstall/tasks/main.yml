@@ -50,6 +50,6 @@
     arguments: "{{ item.value['arguments'] }}"
   loop: "{{ hostvars['__DEFAULT_VARS__']['SOFTWARE_TO_INSTALL']|dict2items }}"
   when: 
-    (additional_software is defined and additional_software['failed'] is false)
+    (additional_software is defined)
 
 ...
