@@ -44,12 +44,12 @@
 #     - uac_input_data: 5
 
 - name: Installing of additional software
-  ansible.windows.win_package::
+  ansible.windows.win_package:
     path: "{{ item.value['destination_path'] }}\\{{ item.value['file_name'] }}"
     state: present
     arguments: "{{ item.value['arguments'] }}"
   loop: "{{ hostvars['__DEFAULT_VARS__']['SOFTWARE_TO_INSTALL']|dict2items }}"
   when: 
-    (additional_software is defined and additional_software.failed is not true)
+    (additional_software is defined and additional_software.failed is false)
 
 ...
