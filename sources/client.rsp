@@ -23,7 +23,7 @@ UNIX_GROUP_NAME=
 #-------------------------------------------------------------------------------
 # Complete path of the Oracle Home
 #-------------------------------------------------------------------------------  
-ORACLE_HOME=c:\app\client\sa0700moafdeveloper\product\12.2.0\client_1
+ORACLE_HOME=C:\Oracle\product\12.2.0\client_1
 
 #-------------------------------------------------------------------------------
 # Complete path of the Oracle Base.
