@@ -1,13 +1,5 @@
 ---
 
-# - OCInstallation/DirectoryExist
-# - OCInstallation/CopyClient
-# - OCInstallation/CopyResponseFile
-# - OCInstallation/UnzipOracleClient
-# - { role: OCInstallation/UACModifier, uac_input_data: 0 }
-# - OCInstallation/OCInstall
-# - { role: OCInstallation/UACModifier }
-
 - ansible.builtin.include_role: name="OCInstallation/DirectoryExist"
 
 - ansible.builtin.include_role: name="OCInstallation/CopyClient"
@@ -37,7 +29,6 @@
       - -responseFile
       - "{{ response_file.dest }}" 
       - -silent
-      # - -force
   # become: yes
   # become_method: runas
   # vars:

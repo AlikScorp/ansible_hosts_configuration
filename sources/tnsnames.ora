@@ -1,0 +1,44 @@
+
+SA2SDP2 =
+(DESCRIPTION =
+            (ADDRESS = (PROTOCOL = TCP)(HOST = 0700scpdb01.ural.mts.ru)(PORT = 1521))
+            (CONNECT_DATA =
+            (SERVER = DEDICATED)
+            (SERVICE_NAME = sa2sdp2)
+            )
+)
+
+
+
+INT_FORIS = 
+  (DESCRIPTION = 
+    (ADDRESS_LIST = 
+      (ADDRESS = (PROTOCOL = TCP)(HOST = intdb.lab.mts.ru)(PORT = 1521)) 
+    ) 
+    (CONNECT_DATA = 
+      (SERVICE_NAME = INT_FORIS) 
+      (SERVER = DEDICATED) 
+    ) 
+  )
+
+REAL_FORIS = 
+  (DESCRIPTION = 
+    (ADDRESS_LIST = 
+      (ADDRESS = (PROTOCOL = TCP)(HOST = realdb.lab.mts.ru)(PORT = 1522)) 
+    ) 
+    (CONNECT_DATA = 
+      (SERVICE_NAME = REAL_FORIS) 
+      (SERVER = DEDICATED) 
+    ) 
+  )
+
+NEXT_FORIS = 
+  (DESCRIPTION = 
+    (ADDRESS_LIST = 
+      (ADDRESS = (PROTOCOL = TCP)(HOST = nextdb.lab.mts.ru)(PORT = 1522)) 
+    ) 
+    (CONNECT_DATA = 
+      (SERVICE_NAME = NEXT_FORIS) 
+      (SERVER = DEDICATED) 
+    ) 
+  )
