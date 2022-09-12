@@ -15,19 +15,19 @@
 - debug:
     msg:
       - "Installation of Oracle Client"
-      - "Destination: {{ client_unziped.dest }}"
-      - "Response file: {{ response_file.dest }}"
+      - "Destination: {{ client_unziped.dest }}\\client\\setup.exe"
+      - "Response file: {{ response_file.dest }}\\{{ hostvars['__DEFAULT_VARS__']['RSP_FILE_NAME'] }}"
 
 - name: Installation of Oracle Client
   ansible.windows.win_package:
-    path: '{{ client_unziped.dest }}\client\setup.exe'
+    path: "{{ client_unziped.dest }}\\client\\setup.exe"
     state: present
     arguments: 
       - -waitforcompletion
       - -noconsole
       - -nowait
       - -responseFile
-      - "{{ response_file.dest }}" 
+      - "{{ response_file.dest }}\\{{ hostvars['__DEFAULT_VARS__']['RSP_FILE_NAME'] }}" 
       - -silent
   # become: yes
   # become_method: runas
