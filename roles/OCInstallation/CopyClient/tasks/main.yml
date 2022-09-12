@@ -16,7 +16,7 @@
 
 - debug:
     msg: 
-      - "Key: {{ item.key }}"
+      - "Key: {{ item }}"
       # - "File name: {{ item.value['file_name'] }}"
       # - "Arguments: {{ item.value['arguments'] }}"
   loop: "{{ hostvars['__DEFAULT_VARS__']['SOFTWARE_TO_INSTALL'] }}"
