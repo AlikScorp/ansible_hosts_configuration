@@ -37,7 +37,7 @@
 #   when:
 #     (client_unzipped is defined and response_file is defined)
 
-- ansible.builtin.include_role: name="OCInstalltion/CopyTNS"
+- ansible.builtin.include_role: name="OCInstallation/CopyTNS"
 
 - ansible.builtin.include_role: name="OCInstallation/UACModifier"
   vars:
