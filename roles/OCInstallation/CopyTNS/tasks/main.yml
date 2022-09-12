@@ -4,13 +4,13 @@
     msg:
       - "Copying TNS file into Oracle Client folder"
       - "SRC: {{ tns_src_path }}"
-      - "DST: {{ tns_win_path }}"
+      - "DST: {{ tns_win_path }}" # C:\Oracle\product\12.2.0\client_1\network\admin
 
 - name: Copying TNS-file
-  win_file:
+  win_copy:
     src: "{{ tns_src_path }}"
     dest: "{{ tns_win_path }}"
   register: tns_file
-  ignore_errors: yes
+  # ignore_errors: yes
 
 ...
