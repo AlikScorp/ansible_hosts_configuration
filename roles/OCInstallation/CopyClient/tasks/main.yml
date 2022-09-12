@@ -1,27 +1,27 @@
 ---
 
-# - debug: 
-#     msg: 
-#      - "Copying archived Oracle Client"
-#      - "src: {{ source_file_name }}"
-#      - "dst: {{ download_dir }}"
+- debug: 
+    msg: 
+     - "Copying archived Oracle Client"
+     - "src: {{ source_file_name }}"
+     - "dst: {{ download_dir }}"
 
-# - name: Copying Oracle Client
-#   win_get_url:
-#     url: "{{ source_file_name }}"
-#     dest: "{{ download_dir }}"
-#   register: oracle_client
-#   when:
-#     (source_file_name is defined and download_dir is defined)
+- name: Copying Oracle Client
+  win_get_url:
+    url: "{{ source_file_name }}"
+    dest: "{{ download_dir }}"
+  register: oracle_client
+  when:
+    (source_file_name is defined and download_dir is defined)
 
-# - debug:
-#     msg: 
-#       - "Title: {{ item.value['name'] }}"
-#       - "File name: {{ item.value['file_name'] }}"
-#       - "Arguments: {{ item.value['arguments'] }}"
-#   loop: "{{ hostvars['__DEFAULT_VARS__']['SOFTWARE_TO_INSTALL']|dict2items }}"
-#   when:
-#     (hostvars['__DEFAULT_VARS__']['SOFTWARE_TO_INSTALL'] is defined)
+- debug:
+    msg: 
+      - "Title: {{ item.value['name'] }}"
+      - "File name: {{ item.value['file_name'] }}"
+      - "Arguments: {{ item.value['arguments'] }}"
+  loop: "{{ hostvars['__DEFAULT_VARS__']['SOFTWARE_TO_INSTALL']|dict2items }}"
+  when:
+    (hostvars['__DEFAULT_VARS__']['SOFTWARE_TO_INSTALL'] is defined)
 
 - name: Copying additional software
   win_get_url:
@@ -31,9 +31,5 @@
   when:
     (hostvars['__DEFAULT_VARS__']['SOFTWARE_TO_INSTALL'] is defined)
   register: additional_software
-
-# - debug:
-#     msg:
-#       - "{{ additional_software }}"
 
 ...
