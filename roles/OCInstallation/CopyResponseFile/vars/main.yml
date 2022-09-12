@@ -1,6 +1,6 @@
 ---
 
-rsp_src_path: "{{ hostvars['__DEFAULT_VARS__']['playbook_dir'] }}\\sources\\{{ hostvars['__DEFAULT_VARS']['RSP_FILE_NAME'] }}"
+rsp_src_path: "{{ hostvars['playbook_dir'] }}\\sources\\{{ hostvars['__DEFAULT_VARS']['RSP_FILE_NAME'] }}"
 rsp_win_path: "{{ hostvars['__DEFAULT_VARS__']['DISTRIB_PATH'] }}\\client"
 
 ...

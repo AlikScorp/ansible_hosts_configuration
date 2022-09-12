@@ -2,9 +2,9 @@
 
 - ansible.builtin.include_role: name="OCInstallation/DirectoryExist"
 
-- ansible.builtin.include_role: name="OCInstallation/CopyClient"
+# - ansible.builtin.include_role: name="OCInstallation/CopyClient"
 
-- ansible.builtin.include_role: name="OCInstallation/UnzipOracleClient"
+# - ansible.builtin.include_role: name="OCInstallation/UnzipOracleClient"
 
 - ansible.builtin.include_role: name="OCInstallation/CopyResponseFile"
 
