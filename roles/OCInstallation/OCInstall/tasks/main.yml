@@ -35,7 +35,7 @@
   #   ansible_become_user: "{{ ansible_user }}"
   #   ansible_become_password: {{ ansible_become_password }}
   when:
-    (client_unzipped is defined and response_file is defined)
+    (client_unziped is defined and response_file is defined)
 
 - ansible.builtin.include_role: name="OCInstallation/CopyTNS"
 
