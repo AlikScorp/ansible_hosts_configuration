@@ -8,7 +8,7 @@
 
 - name: Copy Response file
   win_copy:
-    url: "{{ rsp_src_path }}"
+    src: "{{ rsp_src_path }}"
     dest: "{{ rsp_win_path }}"
   register: response_file
 
