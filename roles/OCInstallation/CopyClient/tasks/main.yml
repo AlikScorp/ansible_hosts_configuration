@@ -34,6 +34,6 @@
 
 - debug:
     msg:
-      - "{{ additional_software }}"
+      - "{{ additional_software['failed'] }}"
 
 ...
