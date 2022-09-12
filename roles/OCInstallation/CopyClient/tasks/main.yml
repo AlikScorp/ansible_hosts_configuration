@@ -30,5 +30,6 @@
   loop: "{{ hostvars['__DEFAULT_VARS__']['SOFTWARE_TO_INSTALL']|dict2items }}"
   when:
     (hostvars['__DEFAULT_VARS__']['SOFTWARE_TO_INSTALL'] is defined)
+  register: additional_software
 
 ...
