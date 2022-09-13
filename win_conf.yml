@@ -1,5 +1,5 @@
 ---
-- name: Install Oracle client onto the Windows Server
+- name: Install Oracle client onto Windows Server
   hosts: win2019
 
   # vars:
