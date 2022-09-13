@@ -62,9 +62,7 @@
     state: present
 
 - name: Opening ports
-  ansible.windows.win_command: 
-    argv:
-      - "{{ item }}"
+  ansible.windows.win_command: "{{ item }}"
   loop:
     - 'netsh http add urlacl url=http://+:2222 user=everyone'
     - 'netsh http add urlacl url=http://+: user=everyone'
