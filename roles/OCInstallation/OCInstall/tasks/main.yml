@@ -71,7 +71,7 @@
 
 - name: Check netsh configuration
   ansible.windows.win_command: 'netsh http show urlacl'
-  registry: netsh_configuration
+  register: netsh_configuration
 
 - debug:
     msg:
