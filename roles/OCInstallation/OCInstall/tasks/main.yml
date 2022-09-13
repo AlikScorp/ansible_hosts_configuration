@@ -1,57 +1,57 @@
 ---
 
-# - ansible.builtin.include_role: name="OCInstallation/DirectoryExist"
+- ansible.builtin.include_role: name="OCInstallation/DirectoryExist"
 
-# - ansible.builtin.include_role: name="OCInstallation/CopyClient"
+- ansible.builtin.include_role: name="OCInstallation/CopyClient"
 
-# - ansible.builtin.include_role: name="OCInstallation/UnzipOracleClient"
+- ansible.builtin.include_role: name="OCInstallation/UnzipOracleClient"
 
-# - ansible.builtin.include_role: name="OCInstallation/CopyResponseFile"
+- ansible.builtin.include_role: name="OCInstallation/CopyResponseFile"
 
-# - ansible.builtin.include_role: name="OCInstallation/UACModifier"
-#   vars:
-#     - uac_input_data: 0
+- ansible.builtin.include_role: name="OCInstallation/UACModifier"
+  vars:
+    - uac_input_data: 0
 
-# - debug:
-#     msg:
-#       - "Installation of Oracle Client"
-#       - "Destination: {{ client_unziped.dest }}\\client\\setup.exe"
-#       - "Response file: {{ response_file.dest }}\\{{ hostvars['__DEFAULT_VARS__']['RSP_FILE_NAME'] }}"
+- debug:
+    msg:
+      - "Installation of Oracle Client"
+      - "Destination: {{ client_unziped.dest }}\\client\\setup.exe"
+      - "Response file: {{ response_file.dest }}\\{{ hostvars['__DEFAULT_VARS__']['RSP_FILE_NAME'] }}"
 
-# - name: Installation of Oracle Client
-#   ansible.windows.win_package:
-#     path: "{{ client_unziped.dest }}\\client\\setup.exe"
-#     state: present
-#     arguments: 
-#       - -waitforcompletion
-#       - -noconsole
-#       - -nowait
-#       - -responseFile
-#       - "{{ response_file.dest }}\\{{ hostvars['__DEFAULT_VARS__']['RSP_FILE_NAME'] }}" 
-#       - -silent
-#   # become: yes
-#   # become_method: runas
-#   # vars:
-#   #   ansible_become_user: "{{ ansible_user }}"
-#   #   ansible_become_password: {{ ansible_become_password }}
-#   when:
-#     (client_unziped is defined and response_file is defined)
+- name: Installation of Oracle Client
+  ansible.windows.win_package:
+    path: "{{ client_unziped.dest }}\\client\\setup.exe"
+    state: present
+    arguments: 
+      - -waitforcompletion
+      - -noconsole
+      - -nowait
+      - -responseFile
+      - "{{ response_file.dest }}\\{{ hostvars['__DEFAULT_VARS__']['RSP_FILE_NAME'] }}" 
+      - -silent
+  # become: yes
+  # become_method: runas
+  # vars:
+  #   ansible_become_user: "{{ ansible_user }}"
+  #   ansible_become_password: {{ ansible_become_password }}
+  when:
+    (client_unziped is defined and response_file is defined)
 
-# - ansible.builtin.include_role: name="OCInstallation/CopyTNS"
+- ansible.builtin.include_role: name="OCInstallation/CopyTNS"
 
-# - name: Installing of additional software
-#   ansible.windows.win_package:
-#     path: "{{ item.value['destination_path'] }}\\{{ item.value['file_name'] }}"
-#     state: present
-#     arguments: "{{ item.value['arguments'] }}"
-#   loop: "{{ hostvars['__DEFAULT_VARS__']['SOFTWARE_TO_INSTALL']|dict2items }}"
-#   when: 
-#     (additional_software is defined)
-#   ignore_errors: yes
+- name: Installing of additional software
+  ansible.windows.win_package:
+    path: "{{ item.value['destination_path'] }}\\{{ item.value['file_name'] }}"
+    state: present
+    arguments: "{{ item.value['arguments'] }}"
+  loop: "{{ hostvars['__DEFAULT_VARS__']['SOFTWARE_TO_INSTALL']|dict2items }}"
+  when: 
+    (additional_software is defined)
+  ignore_errors: yes
 
-# - ansible.builtin.include_role: name="OCInstallation/UACModifier"
-#   vars:
-#     - uac_input_data: 5
+- ansible.builtin.include_role: name="OCInstallation/UACModifier"
+  vars:
+    - uac_input_data: 5
 
 - name: Adding the key into Windows registry
   ansible.windows.win_regedit:
