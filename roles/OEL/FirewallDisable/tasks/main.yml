@@ -1,0 +1,10 @@
+---
+
+- debug:
+    msg:
+      - "{{ hostvars }}"
+
+# - name: Firewall disabling
+
+
+...

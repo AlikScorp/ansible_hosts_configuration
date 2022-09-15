@@ -2,7 +2,8 @@
 - name: Preconfiguration of OEL7 servers
   hosts: oel7
 
-- roles:
-  
+  roles:
+    - FireWallDisable
+
 
 ...
