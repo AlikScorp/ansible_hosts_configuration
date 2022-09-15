@@ -1,8 +1,5 @@
 ---
 
-- name: Install necessary SSH-key onto remote hosts
-  local_action: "ssh-copy-id {{ ansible-user }}@{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
-
 - debug:
     msg:
       - "{{ hostvars }}"
