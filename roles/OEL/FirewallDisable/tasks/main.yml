@@ -1,8 +1,8 @@
 ---
 
-- debug: 
-    msg: 
-      - "ssh-copy-id {{ ansible_user }}@{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
+# - debug: 
+#     msg: 
+#       - "ssh-copy-id {{ ansible_user }}@{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
 
 - debug:
     msg:
