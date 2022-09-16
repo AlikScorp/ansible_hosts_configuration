@@ -12,6 +12,10 @@
   service_facts:
 
 - name: Firewall stopping and disabling
+  vars:
+    become_method: sudo
+    become: yes
+
   ansible.builtin.service: 
     name: "{{ item }}" 
     state: started 
