@@ -12,12 +12,12 @@
   service_facts:
 
 - name: Firewall stopping and disabling
-  # ansible.builtin.service: 
-  #   name: firewalld 
-  #   state: stopped 
-    # enabled: no
-  ansible.builtin.command: "{{ item }}"
+  ansible.builtin.service: 
+    name: "{{ item }}" 
+    state: stopped 
+    enabled: no
+  # ansible.builtin.command: "{{ item }}"
   loop:
-    - sudo systemctl stop firewalld
+    - firewalld
 
 ...
