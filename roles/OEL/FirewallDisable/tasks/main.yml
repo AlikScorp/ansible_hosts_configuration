@@ -17,8 +17,9 @@
   #   become_user: root
   #   become: yes
 
-  ansible.builtin.command: "{{ item }}"
-  loop:
-    - systemctl stop firewalld
-    - systemctl disable firewalld
+  ansible.builtin.systemd: 
+    name: firewalld
+    state: stopped
+    enabled: no
+
 ...
