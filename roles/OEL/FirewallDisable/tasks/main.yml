@@ -14,7 +14,7 @@
 - name: Firewall stopping and disabling
   ansible.builtin.service: 
     name: "{{ item }}" 
-    state: stopped 
+    state: started 
     enabled: no
   # ansible.builtin.command: "{{ item }}"
   loop:
