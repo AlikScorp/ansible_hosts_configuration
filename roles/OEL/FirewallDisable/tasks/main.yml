@@ -4,9 +4,9 @@
 #     msg: 
 #       - "ssh-copy-id {{ ansible_user }}@{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
 
-- debug:
-    msg:
-      - "{{ hostvars[inventory_hostname] }}"
+# - debug:
+#     msg:
+#       - "{{ hostvars[inventory_hostname] }}"
 
 # - name: 'Populate service facts'
 #   service_facts:
