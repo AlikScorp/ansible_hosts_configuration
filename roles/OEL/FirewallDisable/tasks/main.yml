@@ -6,23 +6,23 @@
 
 - debug:
     msg:
-      - "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
+      - "{{ hostvars[inventory_hostname] }}"
 
-- name: 'Populate service facts'
-  service_facts:
+# - name: 'Populate service facts'
+#   service_facts:
 
-- name: Firewall stopping and disabling
-  vars:
-    become_method: sudo
-    become_user: arishmukh1
-    become: yes
+# - name: Firewall stopping and disabling
+#   vars:
+#     become_method: sudo
+#     become_user: arishmukh1
+#     become: yes
 
-  ansible.builtin.service: 
-    name: "{{ item }}" 
-    state: started 
-    enabled: no
-  # ansible.builtin.command: "{{ item }}"
-  loop:
-    - firewalld
+#   ansible.builtin.service: 
+#     name: "{{ item }}" 
+#     state: started 
+#     enabled: no
+#   # ansible.builtin.command: "{{ item }}"
+#   loop:
+#     - firewalld
 
 ...
