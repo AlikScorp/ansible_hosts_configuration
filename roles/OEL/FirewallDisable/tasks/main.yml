@@ -18,10 +18,8 @@
     become: yes
 
   ansible.builtin.service: 
-    name: "{{ item }}" 
+    name: firewalld
     state: started 
     enabled: no
-  loop:
-    - firewalld
 
 ...
