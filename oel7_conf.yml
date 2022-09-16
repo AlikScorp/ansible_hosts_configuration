@@ -1,12 +1,7 @@
 ---
 
-
 - name: Preconfiguration of OEL7 servers
   hosts: oel7
-
-- debug: 
-    msg: 
-      - "ssh-copy-id {{ ansible-user }}@{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
 
   roles:
     - OEL/FirewallDisable
