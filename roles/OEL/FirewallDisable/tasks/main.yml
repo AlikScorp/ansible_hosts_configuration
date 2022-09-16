@@ -12,10 +12,10 @@
   service_facts:
 
 - name: Firewall stopping and disabling
-  # vars:
-  #   become_method: sudo
-  #   become_user: root
-  #   become: yes
+  vars:
+    become_method: sudo
+    become_user: root
+    become: yes
 
   ansible.builtin.systemd: 
     name: firewalld
