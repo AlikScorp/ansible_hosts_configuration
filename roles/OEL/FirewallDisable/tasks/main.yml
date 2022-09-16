@@ -4,9 +4,13 @@
 #     msg: 
 #       - "ssh-copy-id {{ ansible_user }}@{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
 
-- debug:
-    msg:
-      - "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
+tasks:
+  - name: Take out of load balancer pool
+    local_action: "ssh-copy-id {{ ansible_user }}@{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
+
+  - debug:
+      msg:
+        - "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
 
 # - name: Firewall disabling
 
