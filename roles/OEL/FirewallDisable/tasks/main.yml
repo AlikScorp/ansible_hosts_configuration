@@ -20,6 +20,6 @@
   ansible.builtin.systemd: 
     name: firewalld
     state: stopped
-    enabled: no
+    enabled: yes
 
 ...
