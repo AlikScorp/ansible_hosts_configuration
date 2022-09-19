@@ -12,15 +12,11 @@
   service_facts:
 
 - name: Firewall stopping and disabling
-  # vars:
-  #   become_method: sudo
-  #   # become_user: root
-  #   become: yes
 
   systemd:
     name: firewalld
-    state: stopped
-    enabled: False
+    state: started
+    enabled: True
   ignore_errors: yes
 
 - name: Print service facts

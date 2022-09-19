@@ -2,9 +2,6 @@
 
 - name: Preconfiguration of OEL7 servers
   hosts: oel7
-  # vars:
-  #   become_method: sudo
-  #   become: yes
 
   roles:
     - OEL/FirewallDisable
