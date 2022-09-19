@@ -22,8 +22,8 @@
 - name: Ensure firewalld service is disabled and stopped
   systemd:
     name: firewalld
-    state: started
-    enabled: yes
+    state: stopped
+    enabled: no
     masked: no
   register: firewalld_result
   failed_when: "firewalld_result is failed and 'Could not find the requested service' not in firewalld_result.msg"
