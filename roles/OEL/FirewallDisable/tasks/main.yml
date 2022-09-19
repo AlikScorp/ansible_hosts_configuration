@@ -19,8 +19,8 @@
 
   systemd:
     name: firewalld
-    state: stopped
-    enabled: False
+    # state: stopped
+    enabled: yes
   ignore_errors: yes
 
 - name: Print service facts
