@@ -23,7 +23,7 @@
   systemd:
     name: firewalld
     state: stopped
-    scope: global
+    # scope: global
     enabled: no
     masked: no
   register: firewalld_result
