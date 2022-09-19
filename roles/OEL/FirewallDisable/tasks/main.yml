@@ -24,7 +24,7 @@
     name: firewalld
     state: stopped
     daemon_reexec: yes
-    daemon_reload: yes
+    # daemon_reload: yes
     # scope: global
     enabled: no
     masked: no
