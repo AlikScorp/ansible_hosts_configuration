@@ -21,4 +21,9 @@
     name: firewalld
     state: stopped
     enabled: no
+
+- name: Print service facts
+  ansible.builtin.debug:
+    var: ansible_facts.services
+    
 ...
