@@ -19,8 +19,6 @@
 
   ansible.builtin.service:
     name: firewalld
-    state: "{{ item }}"
-    loop:
-      - stoped
-      - disabled
+    state: stopped
+    enable: no
 ...
