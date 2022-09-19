@@ -11,13 +11,23 @@
 - name: 'Populate service facts'
   service_facts:
 
-- name: Firewall stopping and disabling
+# - name: Firewall stopping and disabling
 
+#   systemd:
+#     name: firewalld
+#     state: started
+#     enabled: True
+#   ignore_errors: yes
+
+- name: Ensure firewalld service is disabled and stopped
   systemd:
     name: firewalld
-    state: started
-    enabled: True
-  ignore_errors: yes
+    state: stopped
+    enabled: no
+    masked: yes
+  register: firewalld_result
+  failed_when: "firewalld_result is failed and 'Could not find the requested service' not in firewalld_result.msg"
+  when: ansible_os_family == 'RedHat' and ansible_distribution_major_version >= '7'
 
 - name: Print service facts
   ansible.builtin.debug:
