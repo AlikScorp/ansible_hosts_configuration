@@ -24,7 +24,7 @@
     name: firewalld
     state: stopped
     enabled: no
-    masked: yes
+    masked: no
   register: firewalld_result
   failed_when: "firewalld_result is failed and 'Could not find the requested service' not in firewalld_result.msg"
   when: ansible_os_family == 'RedHat' and ansible_distribution_major_version >= '7'
