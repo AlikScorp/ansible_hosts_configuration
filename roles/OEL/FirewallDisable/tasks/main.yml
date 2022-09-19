@@ -22,7 +22,7 @@
 - name: Ensure firewalld service is disabled and stopped
   systemd:
     name: firewalld
-    state: stopped
+    state: started
     daemon_reexec: yes
     # daemon_reload: yes
     # scope: global
