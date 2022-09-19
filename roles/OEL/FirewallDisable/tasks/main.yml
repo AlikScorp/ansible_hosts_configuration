@@ -14,12 +14,12 @@
 - name: Firewall stopping and disabling
   vars:
     become_method: sudo
-    become_user: root
+    # become_user: root
     become: yes
 
   ansible.builtin.systemd: 
     name: firewalld
     state: stopped
-    enabled: yes
+    enabled: no
 
 ...
