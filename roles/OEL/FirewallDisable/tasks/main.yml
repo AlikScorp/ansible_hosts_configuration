@@ -20,10 +20,11 @@
   systemd:
     name: firewalld
     state: stopped
-    enabled: no
+    enabled: False
+  ignore_errors: yes
 
 - name: Print service facts
   ansible.builtin.debug:
-    var: ansible_facts
+    var: ansible_facts.firewalld
 
 ...
