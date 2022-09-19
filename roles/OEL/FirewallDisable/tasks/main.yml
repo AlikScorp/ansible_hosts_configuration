@@ -11,16 +11,16 @@
 - name: 'Populate service facts'
   service_facts:
 
-# - name: Firewall stopping and disabling
-#   vars:
-#     become_method: sudo
-#     # become_user: root
-#     become: yes
+- name: Firewall stopping and disabling
+  # vars:
+  #   become_method: sudo
+  #   # become_user: root
+  #   become: yes
 
-#   ansible.builtin.service:
-#     name: firewalld
-#     state: stopped
-#     enabled: no
+  systemd:
+    name: firewalld
+    state: stopped
+    enabled: no
 
 - name: Print service facts
   ansible.builtin.debug:
